@@ -20,8 +20,11 @@ export class InfoPaginaService {
   private getInfo() {
     this.http.get('assets/data/data-pagina.json')
     .subscribe( (resp: infoPagina)=>{
-      this.cargada = true;
-      this.info = resp;
+      setTimeout(()=>{
+        this.cargada = true;
+        this.info = resp;
+      },1000);
+      
     })
   }
 

@@ -1,3 +1,8 @@
+<!-- 1 loading -->
+<div align="center" *ngIf="!producto">
+    <app-cargando></app-cargando>
+</div>
+<!-- fin loading -->
 
 <section *ngIf="producto">
   <header [ngStyle]="{'background-image': 'url(assets/productos/'+ id +'/main.jpg)'}"

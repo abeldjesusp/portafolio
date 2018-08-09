@@ -1,5 +1,11 @@
+<!-- 1 loading -->
+<div align="center" *ngIf="!_infoService.cargada">
+    <app-cargando></app-cargando>
+</div>
+<!-- fin loading -->
 
-<div class="ae-grid au-xs-ta-center au-mb-4">
+
+<div class="ae-grid au-xs-ta-center au-mb-4" *ngIf="_infoService.cargada">
   
   <div class="animated fadeIn ae-grid__item item-lg-4 ae-kappa au-mb-3"></div>
 
