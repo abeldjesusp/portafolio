@@ -1,22 +1,19 @@
 <section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
 
 
-  <!-- 1 loading -->
-  <div align="center" *ngIf="productosService.cargando">
-      <app-cargando></app-cargando>
-  </div>
-  <!-- fin loading -->
-  
-  <div class="rk-portfolio__items" *ngIf="!productosService.cargando">
-    <a *ngFor="let item of productosService.items"
-        [ngStyle]="{'background-image': 'url(assets/productos/' + item.url + '.jpg)'}"
-        [routerLink]="['/item', item.cod]"             
-        class="rk-item rk-item--flex item-1 rk-size-4 rk-tosize-3 rk-square ">
-      <div class="item-meta">
-        <h2>{{ item.titulo }}</h2>
-        <p>{{ item.categoria }}</p>
-      </div>
-    </a> 
-  </div>
+    <!-- 1 loading -->
+    <div align="center" *ngIf="projectosService.cargando">
+        <app-cargando></app-cargando>
+    </div>
+    <!-- fin loading -->
+
+    <div class="rk-portfolio__items" *ngIf="!projectosService.cargando">
+        <a *ngFor="let projecto of projectosService.projectos" [ngStyle]="{'background-image': 'url(assets/projectos/' + projecto.url + '.jpg)'}" [routerLink]="['/projecto', projecto.cod]" class="rk-item rk-item--flex item-1 rk-size-4 rk-tosize-3 rk-square ">
+            <div class="item-meta">
+                <h2>{{ projecto.titulo }}</h2>
+                <p>{{ projecto.categoria }}</p>
+            </div>
+        </a>
+    </div>
 
 </section>

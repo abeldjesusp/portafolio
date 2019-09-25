@@ -17,31 +17,31 @@ export class ProductosService {
   }
 
   private cargarProductos() {
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
       this.http.get('https://mi-portafolio-e327a.firebaseio.com/productos_idx.json')
              .subscribe( (resp: item[]) => {
                this.items = resp;
                this.cargando = false;
                resolve();
              });
-    });    
+    });
   }
 
-  public getProducto(id: String){
+  public getProducto(id: string) {
     return this.http.get(`https://mi-portafolio-e327a.firebaseio.com/productos/${id}.json`);
   }
 
   buscarItem(termino: string){
 
     if(this.items.length === 0){
-      //cargar productos
-      this.cargarProductos().then(()=>{
-        //Ejecutar despues de tener los productos
-        //Aplicar filtro
+      // cargar productos
+      this.cargarProductos().then(() => {
+        // Ejecutar despues de tener los productos
+        // Aplicar filtro
         this.filtrarItems(termino);
       });
-    }else{
-      //Aplicar filtro
+    } else {
+      // Aplicar filtro
       this.filtrarItems(termino);
     }
   }
@@ -51,9 +51,9 @@ export class ProductosService {
 
     termino = termino.toLocaleLowerCase();
 
-    this.items.forEach(item =>{
+    this.items.forEach(item => {
       const tituloLower = item.titulo.toLocaleLowerCase();
-      if(item.categoria.indexOf(termino) >= 0 || tituloLower.indexOf(termino) >= 0){
+      if (item.categoria.indexOf(termino) >= 0 || tituloLower.indexOf(termino) >= 0) {
         this.itemsFiltrado.push(item);
       }
     });
